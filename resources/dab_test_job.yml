@@ -44,7 +44,7 @@ resources:
             node_type_id: i3.xlarge
             policy_id: E060384AFC00043E
             aws_attributes:
-              - instance_profile_arn: shard-demo-s3-access
+                instance_profile_arn: shard-demo-s3-access
             autoscale:
                 min_workers: 1
                 max_workers: 4
