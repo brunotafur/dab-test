@@ -1,4 +1,6 @@
 from pyspark.sql import SparkSession
+from databricks.connect import DatabricksSession
+
 
 def get_taxis():
   spark = SparkSession.builder.getOrCreate()
