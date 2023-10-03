@@ -21,8 +21,8 @@ resources:
         - task_key: refresh_pipeline
           depends_on:
             - task_key: notebook_task
-          pipeline_task:
-            pipeline_id: ${resources.pipelines.dab_test_pipeline.id}
+          notebook_task:
+            notebook_path: ../src/notebook.ipynb
         
         - task_key: main_task
           depends_on:
