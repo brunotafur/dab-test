@@ -23,7 +23,7 @@ resources:
             - task_key: notebook_task
           pipeline_task:
             pipeline_id: ${resources.pipelines.dab_test_pipeline.id}
-        
+
         - task_key: main_task
           depends_on:
             - task_key: refresh_pipeline
