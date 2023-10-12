@@ -2,7 +2,7 @@
 resources:
   pipelines:
     dab_test_pipeline:
-      name: dab_test_pipeline
+      name: '[${bundle.environment}] dab_test_pipeline'
       target: dab_test_${bundle.environment}
       libraries:
         - notebook:
