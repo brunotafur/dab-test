@@ -1,7 +1,7 @@
 # This is a Databricks asset bundle definition for dab_test.
 # See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
 bundle:
-  name: dab_test
+  name: dab_test_bt
 
 include:
   - resources/*.yml
