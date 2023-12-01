@@ -38,6 +38,6 @@ targets:
     run_as:
       # This runs as bruno.tafur@databricks.com in production. Alternatively,
       # a service principal could be used here using service_principal_name
-      # (see Databricks documentation).
+      # (see Databricks documentation). 
       user_name: bruno.tafur@databricks.com
     
