@@ -31,13 +31,13 @@ targets:
     # workspace.root_path default of
     # /Users/${workspace.current_user.userName}/.bundle/${bundle.target}/${bundle.name}
     # to a path that is not specific to the current user.
-    mode: production
+    mode: production 
     workspace:
       host: https://e2-demo-west.cloud.databricks.com
       root_path: /Shared/.bundle/prod/${bundle.name}
     run_as:
       # This runs as bruno.tafur@databricks.com in production. Alternatively,
       # a service principal could be used here using service_principal_name
-      # (see Databricks documentation).
+      # (see Databricks documentation). 
       user_name: bruno.tafur@databricks.com
     
