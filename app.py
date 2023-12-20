@@ -4,7 +4,8 @@ import os
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = Dash(__name__, external_stylesheets=external_stylesheets)
+app = Dash(__name__, external_stylesheets=external_stylesheets, 
+           requests_pathname_prefix="/driver-proxy/o/1444828305810485/1220-124235-177lwmpm/8050/")
 
 server = app.server
 
