@@ -9,7 +9,7 @@ resources:
             path: ../src/dlt_pipeline.ipynb
       channel: preview
       clusters:
-        - label: "default"
+        - label: "default" 
           policy_id: "E060384AFC00043E"
           aws_attributes:
               zone_id: auto
