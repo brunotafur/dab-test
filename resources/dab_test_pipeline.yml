@@ -1,8 +1,8 @@
 # The main pipeline for dab_test
 resources:
   pipelines:
-    dab_test_pipeline_bt:
-      name: '[${bundle.environment}] dab_test_pipeline'
+    dab_test_pipeline_btafur:
+      name: '[${bundle.environment}] dab_test_pipeline_btafur'
       target: dab_test_${bundle.environment}
       libraries:
         - notebook:

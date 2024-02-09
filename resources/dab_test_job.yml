@@ -2,7 +2,7 @@
 resources:
   jobs:
     dab_test_job:
-      name: '[${bundle.environment}] dab_test_job'
+      name: '[${bundle.environment}] dab_test_job_btafur'
 
       schedule:
         quartz_cron_expression: '44 37 8 * * ?'
@@ -22,7 +22,7 @@ resources:
           depends_on:
             - task_key: notebook_task
           pipeline_task:
-            pipeline_id: ${resources.pipelines.dab_test_pipeline_bt.id}
+            pipeline_id: ${resources.pipelines.dab_test_pipeline_btafur.id}
 
         - task_key: main_task
           depends_on:

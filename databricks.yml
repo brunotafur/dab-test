@@ -5,7 +5,7 @@ bundle:
 
 include:
   - resources/*.yml
- 
+  
 targets:
   # The 'dev' target, used for development purposes.
   # Whenever a developer deploys using 'dev', they get their own copy.
@@ -20,7 +20,7 @@ targets:
 
   # Optionally, there could be a 'staging' target here.
   # (See Databricks docs on CI/CD at https://docs.databricks.com/dev-tools/bundles/index.html.)
-  #
+  # 
   qa:
     workspace:
       host: https://e2-demo-west.cloud.databricks.com
