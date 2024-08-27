@@ -1,15 +1,28 @@
 from databricks.connect import DatabricksSession
 from pyspark.sql import SparkSession
 from dab_test import main
+from transformation_functions import transform
+from pyspark.sql import Row
+from datetime import datetime, date
 
-# Create a new Databricks Connect session. If this fails,
-# check that you have configured Databricks Connect correctly.
-# See https://docs.databricks.com/dev-tools/databricks-connect.html.
-
-SparkSession.builder = DatabricksSession.builder
-SparkSession.builder.getOrCreate()
+'''spark = DatabricksSession.builder.remote(
+  host       = f"",
+  token      = "",
+  cluster_id = ""
+).getOrCreate()'''
+spark = SparkSession.builder.getOrCreate()
 
 def test_main():
-    taxis = main.get_taxis()
-    assert taxis.count() > 5
+    df = spark.createDataFrame([
+        Row(tpep_pickup_datetime=date(2000, 1, 1), tpep_dropoff_datetime=date(2000, 1, 1), trip_distance=4.0, fare_amount=15.0, pickup_zip=1, dropoff_zip=2),
+        Row(tpep_pickup_datetime=date(2000, 1, 1), tpep_dropoff_datetime=date(2000, 1, 1), trip_distance=1.1, fare_amount=15.0, pickup_zip=1, dropoff_zip=2),
+        Row(tpep_pickup_datetime=date(2000, 1, 1), tpep_dropoff_datetime=date(2000, 1, 1), trip_distance=1.0, fare_amount=15.0, pickup_zip=1, dropoff_zip=2),
+        Row(tpep_pickup_datetime=date(2000, 1, 1), tpep_dropoff_datetime=date(2000, 1, 1), trip_distance=5.0, fare_amount=15.0, pickup_zip=1, dropoff_zip=2),
+    ])
+    #df = spark.read.table("samples.nyctaxi.trips")
+
+    df = transform.filter_func(df)
+    max_value = df.agg({"trip_distance": "max"}).collect()[0][0]
+    assert max_value < 2, f"Not all values in column trip_distance are less than 2. Max value found: {max_value}"
+
 
