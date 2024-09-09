@@ -5,7 +5,19 @@ bundle:
 
 include:
   - resources/*.yml
-  
+
+integration_test: &integration_test
+  resources:
+    jobs:
+      dab_test_job:
+        tasks:
+          - task_key: integration_test
+            job_cluster_key: job_cluster
+            depends_on:
+              - task_key: main_task
+            notebook_task:
+              notebook_path: ./src/integration_tests/validate_dataset.ipynb
+
 targets:
   # The 'dev' target, used for development purposes.
   # Whenever a developer deploys using 'dev', they get their own copy.
@@ -16,14 +28,16 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://e2-demo-west.cloud.databricks.com
+      host: https://e2-demo-field-eng.cloud.databricks.com
 
   # Optionally, there could be a 'staging' target here.
   # (See Databricks docs on CI/CD at https://docs.databricks.com/dev-tools/bundles/index.html.)
   # 
   qa:
     workspace:
-      host: https://e2-demo-west.cloud.databricks.com
+      host: https://e2-demo-field-eng.cloud.databricks.com
+    <<: *integration_test
+
 
   # The 'prod' target, used for production deployment.
   prod:
@@ -33,7 +47,7 @@ targets:
     # to a path that is not specific to the current user.
     mode: production 
     workspace:
-      host: https://e2-demo-west.cloud.databricks.com
+      host: https://e2-demo-field-eng.cloud.databricks.com
       root_path: /Shared/.bundle/prod/${bundle.name}
     run_as:
       # This runs as bruno.tafur@databricks.com in production. Alternatively,

@@ -5,7 +5,7 @@
 
 ## pytest is the default package used for testing
 pytest
-
+databricks-connect==14.3
 ## databricks-connect can be used to run parts of this project locally.
 ## See https://docs.databricks.com/dev-tools/databricks-connect.html.
 ##

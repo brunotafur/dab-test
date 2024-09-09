@@ -55,7 +55,7 @@ jobs:
 
       # Use the downloaded Databricks CLI.
       - uses: databricks/setup-cli@main
-
+      
       # Run the Databricks workflow named "dab_test_job" as defined in the
       # bundle that was just deployed.
       - run: databricks bundle run dab_test_job --refresh-all
