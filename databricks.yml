@@ -1,5 +1,9 @@
 # This is a Databricks asset bundle definition for dab_test.
 # See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+# Queries versionamiento
+# Eliminar un workflow en DABs, que sucede en Databricks.
+# Ejemplos variables
+
 bundle:
   name: dab_test_bt
 
@@ -17,6 +21,7 @@ integration_test: &integration_test
               - task_key: main_task
             notebook_task:
               notebook_path: ./src/integration_tests/validate_dataset.ipynb
+
 
 targets:
   # The 'dev' target, used for development purposes.
